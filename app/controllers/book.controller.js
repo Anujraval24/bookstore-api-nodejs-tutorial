@@ -69,8 +69,8 @@ exports.update = (req, res) => {
         });
     }
 
-    // Find book and update it with the request body
-    Book.findByIdAndUpdate(req.params.bookId, {
+    // Find book and update it with the request body 
+    Book.findByIdAndUpdate(req.params.bookId, { //isn't this findByIdAndUpdate is deprecated? 
         name: req.body.name,
         author: req.body.author
     }, {new: true})
@@ -95,7 +95,7 @@ exports.update = (req, res) => {
 
 // Delete a book with the specified bookId in the request
 exports.delete = (req, res) => {
-    Book.findByIdAndRemove(req.params.bookId)
+    Book.findByIdAndRemove(req.params.bookId) //isn't this findByIdAndRemove is deprecated? 
     .then(book => {
         if(!book) {
             return res.status(404).json({
